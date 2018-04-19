@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.acrimi'
+group='com.github.websafetydeveloper'
 
 android {
     compileSdkVersion 26
@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 14
-        versionName "0.0.14"
+        versionCode 15
+        versionName "0.0.15"
     }
     buildTypes {
         release {
@@ -27,4 +27,14 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.github.dotloop:aosp-exif:be25ae51ec'
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.groupId = 'com.isbx'
+        pom.artifactId = 'android-utils-core'
+        pom.version = android.defaultConfig.versionName
+        // Add other pom properties here if you want (developer details / licenses)
+        repository(url: "file:./archives")
+    }
 }

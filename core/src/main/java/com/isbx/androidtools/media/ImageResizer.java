@@ -207,6 +207,8 @@ public class ImageResizer {
             bm = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(sourceUri), null, options);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
         }
 
         if (bm != null) {
